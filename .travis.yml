@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run arpit/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'docker-react'
+  env: 'DockerReact-env'
+  bucker_name: 'elasticbeanstalk-us-east-2-357849634621'
+  bucker_path: 'docker-react'
+  on:
+    branch: master
