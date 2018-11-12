@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+defore_install:
+  - docker build -t arpit/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run arpit/docker-react npm run -- --coverage
